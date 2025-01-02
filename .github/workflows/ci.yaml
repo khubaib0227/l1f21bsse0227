@@ -1,0 +1,23 @@
+name: ci-wf
+on: 
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+jobs:
+  ci-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: welcome steps 
+        run: echo "welcome to Gi Actions"
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Repository Information
+        run: |
+          echo "Repository Name: $((github.reops))"
+          echo "Type of Event: $((github.event_name))"
+          git --version 
+          git branch
+          git log
